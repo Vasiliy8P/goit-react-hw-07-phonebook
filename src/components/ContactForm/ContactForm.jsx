@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getContacts } from "redux/selectors";
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from "redux/operations";
 import './ContactForm.css';
 
 const ContactForm = () => {
@@ -16,7 +16,7 @@ const ContactForm = () => {
         if (contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())) {
             alert(`${name} is already in contacts`)
         } else {
-            dispatch(addContact(name, number))
+            dispatch(addContact({ name, phone: number }));
         };
 
         reset();
