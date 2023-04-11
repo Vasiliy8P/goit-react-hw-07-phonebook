@@ -12,7 +12,7 @@ export const fetchContacts = createAsyncThunk("contacts/fetchAll",
             return error.message;
         }
     }
-)
+);
 
 export const addContact = createAsyncThunk("contacts/addContact",
     async (contact) => {
@@ -23,7 +23,7 @@ export const addContact = createAsyncThunk("contacts/addContact",
             return error.message;
         }
     }
-)
+);
 
 export const deleteContact = createAsyncThunk("contacts/deleteContact",
     async (contactId) => {
@@ -31,8 +31,8 @@ export const deleteContact = createAsyncThunk("contacts/deleteContact",
             const response = await axios.delete(`/contacts/${contactId}`)
             return response.data;
         } catch (error) {
-            return error
+            return error.message;
         }
     }
-)
+);
 
